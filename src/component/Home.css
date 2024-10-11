@@ -1,0 +1,27 @@
+
+.resize-drag {
+  box-sizing: border-box;
+  touch-action: none;
+  user-select: none;
+  position: absolute;
+}
+
+.drag {
+  width: fit-content;
+  color: lightgreen;
+  border: 2px solid lightgreen;
+  font-weight: bold;
+  padding: 10px;
+
+  box-sizing: border-box;
+  touch-action: none;
+  user-select: none;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
