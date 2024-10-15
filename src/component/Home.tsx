@@ -221,7 +221,6 @@ export default function App() {
 
     handleExport();
     setCurrentImageIndex((prev) => prev + 1);
-    console.log("currentImageIndex", currentImageIndex);
   }, [currentImageIndex, imagesData]);
 
   useEffect(() => {
@@ -256,6 +255,7 @@ export default function App() {
     fetchImages();
   }, [templateImages, imagesData]);
 
+  console.log();
   return (
     <div
       style={{
@@ -287,26 +287,25 @@ export default function App() {
         >
           <img
             src={
-              imagesData && !loading && !error
-                ? imagesData?.images[currentImageIndex]
-                    .before_image_presigned_url
-                : ""
+              (imagesData &&
+                imagesData.images &&
+                imagesData.images[0]
+                  .before_image_presigned_url) ||
+              IMAGE_SRC
             }
             alt="before"
           />
         </div>
         <div
-          style={{
-            ...elements.afterImage,
-          }}
+          style={{ ...elements.afterImage }}
           className="resize-drag afterImage"
         >
           <img
             src={
-              imagesData && !loading && !error
-                ? imagesData?.images[currentImageIndex]
-                    .after_image_presigned_url
-                : ""
+              (imagesData &&
+                imagesData.images &&
+                imagesData.images[0].after_image_presigned_url) ||
+              IMAGE_SRC
             }
             alt="after"
           />
@@ -319,9 +318,7 @@ export default function App() {
           className="resize-drag watermark"
         >
           <img
-            src={
-              !imagesData || loading || error ? imagesData?.watermark_url : ""
-            }
+            src={(imagesData && imagesData.watermark_url) || IMAGE_SRC}
             alt="watermark"
           />
         </div>
