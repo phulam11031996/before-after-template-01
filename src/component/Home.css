@@ -1,4 +1,3 @@
-
 .resize-drag {
   box-sizing: border-box;
   touch-action: none;
@@ -8,11 +7,6 @@
 
 .drag {
   width: fit-content;
-  color: lightgreen;
-  border: 2px solid lightgreen;
-  font-weight: bold;
-  padding: 10px;
-
   box-sizing: border-box;
   touch-action: none;
   user-select: none;
