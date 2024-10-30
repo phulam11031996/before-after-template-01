@@ -1,4 +1,4 @@
-import { useEffect, useState, CSSProperties } from "react";
+import { useEffect, useState } from "react";
 import { ImagesResponse } from "../utils/types";
 
 const TEMPLATE_PARAM_KEY = "template";
@@ -6,13 +6,18 @@ const PAIRED_IMAGE_PATHS_PARAM_KEY = "paired_image_paths";
 const CONCAT_IMAGE_FILENAMES_PARAM_KEY = "concat_image_filenames";
 
 export type TemplateT = {
-  beforeImage: CSSProperties;
-  afterImage: CSSProperties;
-  watermark: CSSProperties;
-  beforeText: CSSProperties;
-  afterText: CSSProperties;
+  outerContainer: any;
+  beforeImageContainer: any;
+  beforeImage: any;
+  afterImageContainer: any;
+  afterImage: any;
+  watermarkImageContainer: any;
+  watermarkImage: any;
+  beforeText: any;
+  afterText: any;
 };
 
+// TODO: Come up with a better name for this hook
 const useImages = () => {
   const [imagesData, setImagesData] = useState<ImagesResponse | null>(null);
   const [template, setTemplate] = useState<TemplateT | null>(null);

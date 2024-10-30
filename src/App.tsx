@@ -1,8 +1,7 @@
-import "./App.css";
-import Home from "./component/Home";
+import ImageConcatenator from "./component/ImageConcatenator";
 
 function App() {
-  return <Home />;
+  return <ImageConcatenator />;
 }
 
 export default App;
