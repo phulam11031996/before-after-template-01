@@ -9,6 +9,7 @@ const TEMPLATE_WIDTH = "500px";
 
 export default function ImageConcatenator() {
   const { imagesData, template, concatImageFilenames } = useImages();
+  const [isDone, setIsDone] = useState<boolean>(false);
 
   const [templateImages, setTemplateImages] = useState<Blob[]>([]);
   const templateContainerRef = useRef<HTMLDivElement>(null);
@@ -61,6 +62,8 @@ export default function ImageConcatenator() {
         }
       } catch (error) {
         console.error("Upload failed:");
+      } finally {
+        setIsDone(true);
       }
     };
     if (!imagesData) return;
@@ -159,6 +162,7 @@ export default function ImageConcatenator() {
       >
         {JSON.stringify(template, null, 2)}
       </pre>
+      {isDone && <span id="finish-concatenate">POST /upload-images send</span>}
     </div>
   );
 }
