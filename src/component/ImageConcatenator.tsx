@@ -17,7 +17,7 @@ export default function ImageConcatenator() {
     for (let i = 0; i < templateContainers.length; i++) {
       toPng(templateContainers[i] as HTMLElement, {
         cacheBust: true,
-        pixelRatio: 2,
+        pixelRatio: 1,
       })
         .then((dataUrl) => {
           const imageBlob = base64ToBlob(dataUrl);
